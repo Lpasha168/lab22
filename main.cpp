@@ -2,7 +2,7 @@
 #include "IntSet.hpp"
 
 int main() {
-    // ====== 1) Создание объектов ======
+    // создание объектов
     IntSet A; // конструктор по умолчанию
     A.add(5);
     A.add(10);
@@ -15,16 +15,16 @@ int main() {
 
     std::cout << "B = " << B << "\n\n";
 
-    // ====== 2) Копирование ======
+    // копирование
     IntSet C(B); // конструктор копирования
     std::cout << "C (copy of B) = " << C << "\n";
 
-    // ====== 3) Присваивание ======
+    // присваивание
     IntSet D;
     D = A; // operator=
     std::cout << "D (assigned from A) = " << D << "\n\n";
 
-    // ====== 4) Работа операторов множеств ======
+    // работа операторов
     IntSet unionSet = A + B;
     IntSet diffSet = B - A;
     IntSet interSet = A * B;
@@ -33,17 +33,17 @@ int main() {
     std::cout << "B - A = " << diffSet << "\n";
     std::cout << "A * B = " << interSet << "\n\n";
 
-    // ====== 5) Сравнение ======
+    // сравнение
     std::cout << "B == C ? " << (B == C ? "true" : "false") << "\n";
     std::cout << "A != B ? " << (A != B ? "true" : "false") << "\n\n";
 
-    // ====== 6) Константный объект ======
+    // констнатный объект
     const IntSet CONSTSET = A;
     std::cout << "CONSTSET = " << CONSTSET << "\n";
     std::cout << "CONSTSET contains 10? " << (CONSTSET.contains(10) ? "true" : "false") << "\n";
     std::cout << "CONSTSET size = " << CONSTSET.size() << "\n\n";
 
-    // ====== 7) remove / clear ======
+    // очистка
     A.remove(10);
     std::cout << "A after remove(10) = " << A << "\n";
 
@@ -53,3 +53,4 @@ int main() {
 
     return 0;
 }
+
