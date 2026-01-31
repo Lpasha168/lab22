@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INSET_HPP
+#define INSET_HPP
 #include <iostream>
 
 class IntSet {
@@ -38,3 +39,4 @@ public:
     // Вывод
     friend std::ostream& operator<<(std::ostream& out, const IntSet& s);
 };
+#endif
