@@ -34,10 +34,13 @@ public:
 
     // Сравнение
     bool operator==(const IntSet& other) const;
-    bool operator!=(const IntSet& other) const;
+    bool operator!=(const IntSet& other) const {
+        return !(*this == other);
+    }
 
     // Вывод
     friend std::ostream& operator<<(std::ostream& out, const IntSet& s);
 };
 #endif
+
 
