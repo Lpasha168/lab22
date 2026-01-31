@@ -9,8 +9,8 @@ private:
 
 public:
     // Конструкторы
-    IntSet();                         // по умолчанию (пустое множество)
-    IntSet(int* a, int size);          // параметризованный (из массива)
+    IntSet();                         // по умолчанию 
+    IntSet(int* a, int size);          // параметризованный из массива
     IntSet(const IntSet& other);       // конструктор копирования
 
     // Оператор присваивания
@@ -40,3 +40,4 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const IntSet& s);
 };
 #endif
+
