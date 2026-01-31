@@ -1,12 +1,12 @@
 #include "IntSet.hpp"
 
-// ====== Конструктор по умолчанию ======
+// конструктор по умолчанию
 IntSet::IntSet() {
     arr = nullptr;
     n = 0;
 }
 
-// ====== Конструктор из массива ======
+// конструктор из массива
 IntSet::IntSet(int* a, int size) {
     arr = nullptr;
     n = 0;
@@ -17,7 +17,7 @@ IntSet::IntSet(int* a, int size) {
     }
 }
 
-// ====== Конструктор копирования (глубокая копия) ======
+// конструктор копирования (глубокая копия) 
 IntSet::IntSet(const IntSet& other) {
     n = other.n;
 
@@ -32,14 +32,14 @@ IntSet::IntSet(const IntSet& other) {
     }
 }
 
-// ====== Оператор присваивания ======
+// оператор присваивания
 IntSet& IntSet::operator=(const IntSet& other) {
     // защита от самоприсваивания
     if (this == &other) {
         return *this;
     }
 
-    // удаляем старую память
+    // очищаем память
     delete[] arr;
 
     n = other.n;
@@ -58,12 +58,12 @@ IntSet& IntSet::operator=(const IntSet& other) {
     return *this;
 }
 
-// ====== Деструктор ======
+// деструктор
 IntSet::~IntSet() {
     delete[] arr;
 }
 
-// ====== Проверка наличия элемента ======
+// проверка наличия элемента
 bool IntSet::contains(int x) const {
     for (int i = 0; i < n; i++) {
         if (arr[i] == x) return true;
@@ -71,7 +71,7 @@ bool IntSet::contains(int x) const {
     return false;
 }
 
-// ====== Добавление элемента ======
+// добавление элемента
 void IntSet::add(int x) {
     // если элемент уже есть — не добавляем
     if (contains(x)) return;
@@ -95,7 +95,7 @@ void IntSet::add(int x) {
     n++;
 }
 
-// ====== Удаление элемента ======
+// удаление элемента
 void IntSet::remove(int x) {
     // если элемента нет — ничего не делаем
     if (!contains(x)) return;
@@ -109,7 +109,7 @@ void IntSet::remove(int x) {
 
     int j = 0; // индекс для нового массива
 
-    // копируем все элементы кроме x
+    // копируется все кроме х
     for (int i = 0; i < n; i++) {
         if (arr[i] != x) {
             newArr[j] = arr[i];
@@ -122,24 +122,24 @@ void IntSet::remove(int x) {
     n--;
 }
 
-// ====== Размер множества ======
+// размер
 int IntSet::size() const {
     return n;
 }
 
-// ====== Очистка множества ======
+// очистка
 void IntSet::clear() {
     delete[] arr;
     arr = nullptr;
     n = 0;
 }
 
-// ====== Проверка на пустоту ======
+// проверка на пустоту
 bool IntSet::isEmpty() const {
     return n == 0;
 }
 
-// ====== Объединение множеств ======
+// объединение множеств
 IntSet IntSet::operator+(const IntSet& other) const {
     // result сначала копия текущего множества
     IntSet result(*this);
@@ -152,7 +152,7 @@ IntSet IntSet::operator+(const IntSet& other) const {
     return result;
 }
 
-// ====== Разность множеств ======
+// разность множеств
 IntSet IntSet::operator-(const IntSet& other) const {
     IntSet result;
 
@@ -166,7 +166,7 @@ IntSet IntSet::operator-(const IntSet& other) const {
     return result;
 }
 
-// ====== Пересечение множеств ======
+// пересечение множеств 
 IntSet IntSet::operator*(const IntSet& other) const {
     IntSet result;
 
@@ -180,7 +180,7 @@ IntSet IntSet::operator*(const IntSet& other) const {
     return result;
 }
 
-// ====== Сравнение множеств ======
+// сравнение множеств
 bool IntSet::operator==(const IntSet& other) const {
     if (n != other.n) return false;
 
@@ -195,7 +195,7 @@ bool IntSet::operator!=(const IntSet& other) const {
     return !(*this == other);
 }
 
-// ====== Вывод множества ======
+// вывод
 std::ostream& operator<<(std::ostream& out, const IntSet& s) {
     out << "{ ";
 
@@ -207,3 +207,4 @@ std::ostream& operator<<(std::ostream& out, const IntSet& s) {
     out << " }";
     return out;
 }
+
